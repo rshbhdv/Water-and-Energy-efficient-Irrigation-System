@@ -1,0 +1,7 @@
+Exception: STATUS_ACCESS_VIOLATION at eip=6102048B
+eax=014185F0 ebx=612434B4 ecx=C7691C9D edx=00EB7188 esi=00000000 edi=0062F8D8
+ebp=61020C00 esp=0062C6A8 program=c:\sensenuts\6.1.2\Tools\cygwin\bin\make.exe, pid 6696, thread main
+cs=0023 ds=002B es=002B fs=0053 gs=002B ss=002B
+Stack trace:
+Frame     Function  Args
+End of stack trace
