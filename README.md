@@ -1,10 +1,6 @@
 # Water-and-Energy-efficient-Irrigation-System
 
-The idea of the major project is to build a IoT based Irrigation system which irrigate the field automatically when the values of soil moisture, humidity and temperature sensed by the sensors are outside the critical or threshold values.				
-    *	    *	    *	    *
-    *	    *	    *	    *
-    *	    *	    *	    *
-Fig 4.  Grid type structure of the farm
+The idea of the project is to build a IoT based Irrigation system which irrigate the field automatically when the values of soil moisture, humidity and temperature sensed by the sensors are outside the critical or threshold values.				
 The field is divided into grid type structure where each grid consists of a sprinkler which is connected to the water solenoid valve. The water solenoid valve is connected to the coordinator node which is sensing values of temperature, humidity and soil moisture. The coordinator is sending the sensed data to the PAN coordinator which is which is connected to the electric motor.
 When any grid of the field has the values of soil moisture, humidity and temperature outside the threshold values, the coordinator generates an interrupt and then sends the sensed data to the PAN coordinator.
 As the PAN coordinator receives the data from the coordinator it immediately switch ON the motor and the water starts flowing through the pipe. The solenoid valve of all the grids will be close except the one grid whose values of soil moisture, humidity and temperature is less than the threshold limits.
