@@ -13,9 +13,9 @@ public class field extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_field);
+        setContentView(R.layout.field_layout);
 
-        ImageView imageView=(ImageView)findViewById(R.id.road);
+        ImageView imageView=(ImageView)findViewById(R.id.fieldlayout);
         imageView.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View view, MotionEvent motionEvent) {
