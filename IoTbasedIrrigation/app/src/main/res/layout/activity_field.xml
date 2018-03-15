@@ -21,13 +21,12 @@
         android:id="@+id/heading"/>
 
     <ImageView
+        android:id="@+id/road"
         android:layout_width="150dp"
         android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
         android:layout_below="@+id/heading"
-        android:layout_marginTop="0dp"
-        android:layout_alignParentLeft="true"
-        android:src="@mipmap/image1"
-        android:id="@+id/road"/>
+        android:src="@mipmap/image5" />
 
     <LinearLayout
         android:layout_width="250dp"
@@ -44,7 +43,7 @@
             android:layout_weight="1"
             android:id="@+id/grid1"
             android:src="@mipmap/image2"
-            android:layout_marginLeft="5dp"/>
+            android:layout_marginLeft="0dp"/>
 
         <ImageView
             android:layout_width="90dp"
@@ -52,7 +51,7 @@
             android:id="@+id/grid2"
             android:src="@mipmap/image2"
             android:layout_weight="1"
-            android:layout_marginLeft="5dp"/>
+            android:layout_marginLeft="1dp"/>
 
 
     </LinearLayout>
@@ -73,7 +72,7 @@
             android:layout_weight="1"
             android:id="@+id/grid3"
             android:src="@mipmap/image2"
-            android:layout_marginLeft="5dp"/>
+            android:layout_marginLeft="0dp"/>
 
         <ImageView
             android:layout_width="90dp"
@@ -81,7 +80,7 @@
             android:id="@+id/grid4"
             android:src="@mipmap/image2"
             android:layout_weight="1"
-            android:layout_marginLeft="5dp"/>
+            android:layout_marginLeft="1dp"/>
 
 
     </LinearLayout>
@@ -101,7 +100,7 @@
             android:layout_weight="1"
             android:id="@+id/grid5"
             android:src="@mipmap/image2"
-            android:layout_marginLeft="5dp"/>
+            android:layout_marginLeft="0dp"/>
 
         <ImageView
             android:layout_width="90dp"
@@ -109,7 +108,7 @@
             android:id="@+id/grid6"
             android:src="@mipmap/image2"
             android:layout_weight="1"
-            android:layout_marginLeft="5dp"/>
+            android:layout_marginLeft="1dp"/>
 
 
     </LinearLayout>
@@ -129,7 +128,7 @@
             android:layout_weight="1"
             android:id="@+id/grid7"
             android:src="@mipmap/image2"
-            android:layout_marginLeft="5dp"/>
+            android:layout_marginLeft="0dp"/>
 
         <ImageView
             android:layout_width="90dp"
@@ -137,7 +136,7 @@
             android:id="@+id/grid8"
             android:src="@mipmap/image2"
             android:layout_weight="1"
-            android:layout_marginLeft="5dp"/>
+            android:layout_marginLeft="1dp"/>
 
 
     </LinearLayout>
@@ -157,7 +156,7 @@
             android:layout_weight="1"
             android:id="@+id/grid9"
             android:src="@mipmap/image2"
-            android:layout_marginLeft="5dp"/>
+            android:layout_marginLeft="0dp"/>
 
         <ImageView
             android:layout_width="90dp"
@@ -165,7 +164,7 @@
             android:id="@+id/grid10"
             android:src="@mipmap/image2"
             android:layout_weight="1"
-            android:layout_marginLeft="5dp"/>
+            android:layout_marginLeft="1dp"/>
 
 
     </LinearLayout>
