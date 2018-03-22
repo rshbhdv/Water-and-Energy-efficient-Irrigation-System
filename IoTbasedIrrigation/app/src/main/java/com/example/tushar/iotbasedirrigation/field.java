@@ -21,10 +21,14 @@ import org.json.JSONObject;
 
 public class field extends AppCompatActivity {
 
+    Field_Object object;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.field_layout);
+
+        object=new Field_Object();
 
         RequestQueue requestQueue= Volley.newRequestQueue(this);
 
@@ -41,13 +45,13 @@ public class field extends AppCompatActivity {
 
                             for(int i=0;i<jsonArray.length();i++){
                                 JSONObject crop =jsonArray.getJSONObject(i);
-                                String grid=crop.getString("grid");
-                                String temp=crop.getString("temp");
-                                String pressure=crop.getString("pressure");
-                                String moisture=crop.getString("moisture");
-                                String humidity=crop.getString("humidity");
+                                object.grid=crop.getString("grid");
+                                object.temp=crop.getString("temp");
+                                object.pressure=crop.getString("pressure");
+                                object.moisture=crop.getString("moisture");
+                                object.humidity=crop.getString("humidity");
 
-                                Log.d("Grid",grid);
+                                Log.d("Grid",object.grid);
 
                             }
 
@@ -65,9 +69,6 @@ public class field extends AppCompatActivity {
         });
 
         requestQueue.add(jsonObjectRequest);
-
-
-
 
         LinearLayout linearLayout=(LinearLayout)findViewById(R.id.layout1);
         linearLayout.setOnTouchListener(new View.OnTouchListener() {
@@ -91,6 +92,11 @@ public class field extends AppCompatActivity {
                 {
                     Toast.makeText(getApplicationContext(),"Lower half",Toast.LENGTH_LONG).show();
                 }
+
+                getIntent().putExtra("FObject", object);
+                Field_Info fragment1=new Field_Info();
+                getSupportFragmentManager().beginTransaction().replace(R.id.frame_fragment, fragment1).commit();
+
 
 
 

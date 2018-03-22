@@ -7,7 +7,12 @@
     android:background="@mipmap/image9"
     android:id="@+id/layout1">
 
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/frame_fragment">
 
+    </FrameLayout>
 
 
 </LinearLayout>
