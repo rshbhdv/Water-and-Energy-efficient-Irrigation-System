@@ -6,7 +6,6 @@ import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.LinearLayout;
-import android.widget.Toast;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -91,18 +90,18 @@ public class field extends AppCompatActivity {
 
                 if(y<900)
                 {
-                    Toast.makeText(getApplicationContext(),"Upper half",Toast.LENGTH_LONG).show();
+                  //  Toast.makeText(getApplicationContext(),"Upper half",Toast.LENGTH_LONG).show();
                 }
 
                 else
                 {
-                    Toast.makeText(getApplicationContext(),"Lower half",Toast.LENGTH_LONG).show();
+                  //  Toast.makeText(getApplicationContext(),"Lower half",Toast.LENGTH_LONG).show();
                 }
 
                 getIntent().putExtra("FObject", object);
 
                 Field_Info fragment1=new Field_Info();
-                getFragmentManager().beginTransaction().replace(R.id.frame_fragment, fragment1).commit();
+               getFragmentManager().beginTransaction().replace(R.id.frame_fragment, fragment1).commit();
 
 
 
