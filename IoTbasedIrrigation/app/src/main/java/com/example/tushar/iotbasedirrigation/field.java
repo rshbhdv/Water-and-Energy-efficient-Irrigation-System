@@ -43,8 +43,8 @@ public class field extends AppCompatActivity {
 
                             JSONArray jsonArray = ob.getJSONArray("result");
 
-                            for(int i=0;i<jsonArray.length();i++){
-                                JSONObject crop =jsonArray.getJSONObject(i);
+
+                                JSONObject crop =jsonArray.getJSONObject(0);
                                 object.grid=crop.getString("grid");
                                 object.temp=crop.getString("temp");
                                 object.pressure=crop.getString("pressure");
@@ -53,7 +53,7 @@ public class field extends AppCompatActivity {
 
                                 Log.d("Grid",object.grid);
 
-                            }
+
 
 
                         } catch (JSONException e) {
@@ -95,7 +95,7 @@ public class field extends AppCompatActivity {
 
                 getIntent().putExtra("FObject", object);
                 Field_Info fragment1=new Field_Info();
-                getSupportFragmentManager().beginTransaction().replace(R.id.frame_fragment, fragment1).commit();
+                getFragmentManager().beginTransaction().replace(R.id.frame_fragment, fragment1).commit();
 
 
 
@@ -103,33 +103,6 @@ public class field extends AppCompatActivity {
                 return false;
             }
         });
-       /* ImageView imageView=(ImageView)findViewById(R.id.fieldlayout);
-        imageView.setOnTouchListener(new View.OnTouchListener() {
-            @Override
-            public boolean onTouch(View view, MotionEvent motionEvent) {
-
-                float x=motionEvent.getX();
-                float y=motionEvent.getY();
-                String s=String.valueOf(x);
-                String e=String.valueOf(y);
-
-                Log.d("x",s);
-                Log.d("y",e);
-
-                if(y<900)
-                {
-                    Toast.makeText(getApplicationContext(),"Upper half",Toast.LENGTH_LONG).show();
-                }
-
-                else
-                {
-                    Toast.makeText(getApplicationContext(),"Lower half",Toast.LENGTH_LONG).show();
-                }
-
-                return false;
-            }
-        });*/
-
 
     }
 }

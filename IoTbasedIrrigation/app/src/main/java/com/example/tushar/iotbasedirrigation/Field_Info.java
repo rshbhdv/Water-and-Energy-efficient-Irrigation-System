@@ -2,14 +2,14 @@ package com.example.tushar.iotbasedirrigation;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
-import android.view.TextureView;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 
 public class Field_Info extends android.app.Fragment {
 
-    TextureView grid,pressure,temp,moisture,humidity;
+    TextView grid,pressure,temp,moisture,humidity;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -18,13 +18,20 @@ public class Field_Info extends android.app.Fragment {
         View view=inflater.inflate(R.layout.fragment_blank, container, false);
         Field_Object field_object= (Field_Object) getActivity().getIntent().getSerializableExtra("FObject");
 
-        grid=(TextureView) view.findViewById(R.id.grid);
+        grid=(TextView) view.findViewById(R.id.grid);
+        grid.setText(field_object.grid);
 
-        temp=(TextureView) view.findViewById(R.id.temp);
-        pressure=(TextureView) view.findViewById(R.id.pressure);
-        moisture=(TextureView) view.findViewById(R.id.moisture);
-        humidity=(TextureView) view.findViewById(R.id.humidity);
+        temp=(TextView) view.findViewById(R.id.temp);
+        temp.setText(field_object.temp);
 
+        pressure=(TextView) view.findViewById(R.id.pressure);
+        pressure.setText(field_object.pressure);
+
+        moisture=(TextView) view.findViewById(R.id.moisture);
+        moisture.setText(field_object.moisture);
+
+        humidity=(TextView) view.findViewById(R.id.humidity);
+        humidity.setText(field_object.humidity);
 
         return view;
     }
