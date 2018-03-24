@@ -15,7 +15,7 @@ public class Field_Info extends android.app.Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view=inflater.inflate(R.layout.fragment_blank, container, false);
+        View view=inflater.inflate(R.layout.field_info_fragment, container, false);
         Field_Object field_object= (Field_Object) getActivity().getIntent().getSerializableExtra("FObject");
 
         grid=(TextView) view.findViewById(R.id.grid);
