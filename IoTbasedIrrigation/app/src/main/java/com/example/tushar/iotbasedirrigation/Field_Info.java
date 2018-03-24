@@ -35,5 +35,6 @@ public class Field_Info extends android.app.Fragment {
 
         return view;
     }
-
 }
+
+

@@ -22,6 +22,7 @@ import org.json.JSONObject;
 public class field extends AppCompatActivity {
 
     Field_Object object;
+    int i=0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,6 +30,10 @@ public class field extends AppCompatActivity {
         setContentView(R.layout.field_layout);
 
         object=new Field_Object();
+
+        InitialLayout fragment2=new InitialLayout();
+        getFragmentManager().beginTransaction().replace(R.id.frame_fragment, fragment2).commit();
+
 
         RequestQueue requestQueue= Volley.newRequestQueue(this);
 
@@ -75,6 +80,7 @@ public class field extends AppCompatActivity {
             @Override
             public boolean onTouch(View view, MotionEvent motionEvent) {
 
+                i=1;
                 float x=motionEvent.getX();
                 float y=motionEvent.getY();
                 String s=String.valueOf(x);
@@ -94,6 +100,7 @@ public class field extends AppCompatActivity {
                 }
 
                 getIntent().putExtra("FObject", object);
+
                 Field_Info fragment1=new Field_Info();
                 getFragmentManager().beginTransaction().replace(R.id.frame_fragment, fragment1).commit();
 
@@ -103,6 +110,20 @@ public class field extends AppCompatActivity {
                 return false;
             }
         });
+
+    }
+
+    @Override
+    public void onBackPressed() {
+        if(i==0)
+            super.onBackPressed();
+        else if(i==1)
+        {
+            i=0;
+
+            InitialLayout fragment2=new InitialLayout();
+            getFragmentManager().beginTransaction().replace(R.id.frame_fragment, fragment2).commit();
+        }
 
     }
 }
