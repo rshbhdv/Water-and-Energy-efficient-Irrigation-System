@@ -1,6 +1,10 @@
 package com.example.tushar.iotbasedirrigation;
 
+import android.annotation.SuppressLint;
+import android.graphics.Color;
+import android.os.Build;
 import android.os.Bundle;
+import android.support.annotation.RequiresApi;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -37,6 +41,8 @@ public class Field_Info extends android.app.Fragment {
 
         JsonArrayRequest jsonObjectRequest=new JsonArrayRequest(Request.Method.GET, "http://192.168.43.11:1337/field/layout",null,
                 new Response.Listener<JSONArray>() {
+                    @SuppressLint("ResourceAsColor")
+                    @RequiresApi(api = Build.VERSION_CODES.O)
                     @Override
                     public void onResponse(JSONArray response) {
                         try {
@@ -71,8 +77,32 @@ public class Field_Info extends android.app.Fragment {
                             humidity.setText(field_object.humidity);
 
 
+                            if(Integer.valueOf(field_object.moisture) > -15)
+                            {
+                                moisture.setBackgroundColor(Color.BLUE);
+                            }
 
 
+                            else if(Integer.valueOf(field_object.moisture) > -20)
+                            {
+                                moisture.setBackgroundColor(Color.GREEN);
+                            }
+
+
+                            else if(Integer.valueOf(field_object.moisture) > -50)
+                            {
+                                moisture.setBackgroundColor(Color.MAGENTA);
+                            }
+
+                            else if(Integer.valueOf(field_object.moisture) > -100)
+                            {
+                                moisture.setBackgroundColor(Color.RED);
+                            }
+
+                            else if(Integer.valueOf(field_object.moisture) <= -100)
+                            {
+                                moisture.setBackgroundColor(Color.GRAY);
+                            }
 
 
                         } catch (JSONException e) {
