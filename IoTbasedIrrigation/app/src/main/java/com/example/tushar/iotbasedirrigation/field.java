@@ -7,17 +7,6 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.widget.LinearLayout;
 
-import com.android.volley.Request;
-import com.android.volley.RequestQueue;
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
-import com.android.volley.toolbox.JsonArrayRequest;
-import com.android.volley.toolbox.Volley;
-
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-
 public class field extends AppCompatActivity {
 
     Field_Object object;
@@ -34,46 +23,6 @@ public class field extends AppCompatActivity {
         getFragmentManager().beginTransaction().replace(R.id.frame_fragment, fragment2).commit();
 
 
-        RequestQueue requestQueue= Volley.newRequestQueue(this);
-
-        JsonArrayRequest jsonObjectRequest=new JsonArrayRequest(Request.Method.GET, "http://192.168.43.11:1337/field/layout",null,
-                new Response.Listener<JSONArray>() {
-                    @Override
-                    public void onResponse(JSONArray response) {
-                        try {
-                            // textView.setText("Entered");
-
-                            JSONObject ob = response.getJSONObject(0);
-
-                            JSONArray jsonArray = ob.getJSONArray("result");
-
-
-                                JSONObject crop =jsonArray.getJSONObject(0);
-                                object.grid=crop.getString("grid");
-                                object.temp=crop.getString("temp");
-                                object.pressure=crop.getString("pressure");
-                                object.moisture=crop.getString("moisture");
-                                object.humidity=crop.getString("humidity");
-
-                                Log.d("Grid",object.grid);
-
-
-
-
-                        } catch (JSONException e) {
-                            e.printStackTrace();
-                        }
-                    }
-                }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                //textView.setText("error");
-                Log.e("Length","Error");
-            }
-        });
-
-        requestQueue.add(jsonObjectRequest);
-
         LinearLayout linearLayout=(LinearLayout)findViewById(R.id.layout1);
         linearLayout.setOnTouchListener(new View.OnTouchListener() {
             @Override
@@ -88,17 +37,33 @@ public class field extends AppCompatActivity {
                 Log.d("x",s);
                 Log.d("y",e);
 
-                if(y<900)
-                {
-                  //  Toast.makeText(getApplicationContext(),"Upper half",Toast.LENGTH_LONG).show();
-                }
 
-                else
-                {
-                  //  Toast.makeText(getApplicationContext(),"Lower half",Toast.LENGTH_LONG).show();
-                }
+                if(x < 365 && y < 565)
+                    getIntent().putExtra("FObject", 0);
 
-                getIntent().putExtra("FObject", object);
+                else if(x < 730 && y < 565)
+                    getIntent().putExtra("FObject", 1);
+
+                else if(x < 1100 && y < 565)
+                    getIntent().putExtra("FObject", 2);
+
+                else if(x < 365 && y < 1130)
+                    getIntent().putExtra("FObject", 3);
+
+                else if(x < 730 && y < 1130)
+                    getIntent().putExtra("FObject", 4);
+
+                else if(x < 1100 && y < 1130)
+                    getIntent().putExtra("FObject", 5);
+
+                else if(x < 365 && y < 1700)
+                    getIntent().putExtra("FObject", 6);
+
+                else if(x < 730 && y < 1700)
+                    getIntent().putExtra("FObject", 7);
+
+                else if(x < 1100 && y < 1700)
+                    getIntent().putExtra("FObject", 8);
 
                 Field_Info fragment1=new Field_Info();
                getFragmentManager().beginTransaction().replace(R.id.frame_fragment, fragment1).commit();
